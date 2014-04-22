@@ -1,1 +1,1 @@
-web: python DesignHeap/manage.py runserver 0:$PORT
+web: python DesignHeap/manage.py collectstatic --noinput; python DesignHeap/manage.py runserver 0:$PORT
