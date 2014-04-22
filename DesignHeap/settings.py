@@ -3,7 +3,7 @@ import inspect, os
 
 SETTINGS_DIR = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -25,7 +25,7 @@ ALLOWED_HOSTS = ["DesignHeap.herokuapp.com",
                  "www.cloudcray.com",
                  "localhost"]
 
-
+"""
 DB_SETTINGS = os.environ["DESIGNHEAP_DB"].split(";")
 
 DATABASES = {
@@ -39,7 +39,7 @@ DATABASES = {
         'PORT': DB_SETTINGS[3],                      # Set to empty string for default.
     }
 }
-
+"""
 # Local time zone for this installation. Choices can be found here:    
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
