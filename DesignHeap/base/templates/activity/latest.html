@@ -1,0 +1,18 @@
+<h5>recent activity</h5>
+{% for post in posts %}
+<div class="activity_panel">
+{% if post.post_type == 'album' %}
+<h3>{{ post.title }}</h3>
+<h4>{{ post.updated }}</h4>
+<div class="album_preview">
+    {% autoescape off %}{{ post.preview }}{% endautoescape %}</div>
+<br>
+{% endif %}
+{% if post.post_type == 'blog' %}
+<h3><a href="/blog/{{ post.url_str }}" >{{ post.title }}</a></h3>
+<h4>{{ post.published }}</h4>
+<p class="blog_preview">{{ post.body|striptags|linebreaksbr }}</p>
+<br>
+{% endif %}
+</div>
+{% endfor %}

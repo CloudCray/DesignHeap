@@ -1,0 +1,13 @@
+{% extends "menus.html" %}
+
+{% block title %}tutorial series{% endblock %}
+
+{% block content %}
+	{% for series in series_list %}
+	<div class="blog_summary_panel">
+	<h2><a href="{{ series.url_friendly_title }}" >{{ series.title }}</a></h2>
+	<p class="blog_description">{{ series.description }}</p>
+	</div>
+	{% endfor %}
+
+{% endblock%}
