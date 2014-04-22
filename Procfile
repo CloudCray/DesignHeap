@@ -1,1 +1,1 @@
-web: python manage.py runserver 0:$PORT
+web: python DesignHeap/manage.py runserver 0:$PORT
