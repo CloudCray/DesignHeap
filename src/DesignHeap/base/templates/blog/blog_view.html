@@ -1,0 +1,17 @@
+{% extends "menus.html" %}
+
+{% block title %}{{ blog.name }}{% endblock %}
+
+{% block content %}
+
+	{% for post in posts %}
+	<h2>{{ post.title }}</h2>
+        <h4>{{ post.published }}</h4>
+	{% autoescape off %}
+		<div class="blog_post_body">
+			{{ post.body|linebreaksbr }}
+		</div>
+	{% endautoescape %}
+	{% endfor %}
+
+{% endblock%}

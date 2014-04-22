@@ -1,0 +1,64 @@
+{% extends "menus.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block title %}{{ tutorial.title }}{% endblock %}
+
+{% block menus %}
+<div id="left_nav">
+	<ul>
+	<li><a href="/">home</a></li>
+	<li><a href="/blog">blogs</a></li>
+	<li><a href="/tutorials">tutorials</a></li>
+	<li><a href="">albums</a></li>
+	<li><a href="">videos</a></li>
+	<li><a href="">about</a></li>
+	</ul>
+</div>
+<div id="right_nav">
+	<div class="blog_summary_panel">
+	<h2>{{ tutorial.title }}</h2>
+	<h4>Contents</h4>
+		<div class="blog_description">
+		{% for p in pages %}
+			<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ p.ordinal }}" >{{ p.title }}</a><br/><br/>
+		{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block content %}
+
+{% if page.ordinal == 0 %}
+	<h1>{{ tutorial.title }}</h1>
+{% endif %}
+
+<h2>{{ page.title }}</h2>
+
+<div>
+	{% if not page.prev == None %}
+	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.prev }}" >prev</a>
+	{% endif %}
+	{% if not page.next == None %}
+	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.next }}" >next</a>
+	{% endif %}
+</div>
+
+{% autoescape off %}
+	<div class="blog_post_body">
+		{{ page.body }}
+	</div>
+{% endautoescape %}
+
+<div>
+	{% if not page.prev == None %}
+	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.prev }}" >prev</a>
+	{% endif %}
+	{% if not page.next == None %}
+	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.next }}" >next</a>
+	{% endif %}
+</div>
+
+{% endblock%}
+

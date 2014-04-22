@@ -1,0 +1,15 @@
+{% extends "menus.html" %}
+
+{% block title %}blogs{% endblock %}
+
+{% block content %}
+
+	{% for blog in blogs %}
+	<div class="blog_summary_panel">
+	<h2><a href="{{ blog.url_safe_name }}" >{{ blog.name }}</a></h2>
+	<p class="blog_description">{{ blog.comment }}</p>
+	<h4>created {{ blog.created }}</h4>
+	</div>
+	{% endfor %}
+
+{% endblock%}
