@@ -3,7 +3,7 @@ import inspect, os
 
 SETTINGS_DIR = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
