@@ -30,6 +30,8 @@ def tutorial_page(request, series_name, tutorial_name, page_num=0):
     pages = list(page_query).sort(key=lambda x: x.ordinal)
     page.prev = None
     page.next = None
+    if not pages:
+        pages = []
     if not page_num == 0:
         page.prev = page_num - 1
     if not page_num == len(pages) - 1:
