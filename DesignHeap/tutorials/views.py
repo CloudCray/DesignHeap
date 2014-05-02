@@ -25,9 +25,12 @@ def tutorial_page(request, series_name, tutorial_name, page_num=0):
     page_num = int(page_num)
     series = TutorialSeries.objects.get(is_published=True, url_friendly_title=series_name)
     tutorial = Tutorial.objects.get(is_published=True, series=series, url_friendly_title=tutorial_name)
+    
+    page_query = TutorialPage.objects.filter(tutorial=tutorial)
+    pages = list([x for x in page_query])
+    pages.sort(key=lambda x: x.ordinal)
+    
     page = TutorialPage.objects.get(tutorial=tutorial, ordinal=page_num)
-    page_query = tutorial.pages()
-    pages = list(page_query).sort(key=lambda x: x.ordinal)
     page.prev = None
     page.next = None
     if not pages:
