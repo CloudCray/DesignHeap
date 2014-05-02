@@ -3,7 +3,7 @@ import inspect, os
 
 SETTINGS_DIR = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -16,6 +16,7 @@ MANAGERS = ADMINS
 import dj_database_url
 DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
+print(DATABASES)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -40,6 +41,7 @@ DATABASES = {
     }
 }
 """
+
 # Local time zone for this installation. Choices can be found here:    
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
