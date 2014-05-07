@@ -32,7 +32,6 @@
 {% endif %}
 
 <h2>{{ page.title }}</h2>
-
 <div>
 	{% if not page.prev == None %}
 	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.prev }}" >prev</a>
@@ -56,6 +55,7 @@
 	<a href="/tutorials/{{ series.url_friendly_title }}/{{ tutorial.url_friendly_title }}/{{ page.next }}" >next</a>
 	{% endif %}
 </div>
+<div>Part of <a href="{{ series.url_friendly_title }}" >{{ series.title }}</a></div>
 
 {% endblock%}
 
